@@ -1,0 +1,381 @@
+/* Estilo general del cuerpo */
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #020008;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    top: 15px;
+    left: 0;
+    z-index: 10;
+    padding: 0 20px;
+}
+
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo para el botón "Volver" */
+.btn-left {
+    background-color: transparent;
+    border-color: #b3a2fd;
+}
+
+.btn-left:hover {
+    border-color: #a996fd;
+}
+
+/* Estilo para el botón "Seguir viendo" */
+.btn-right {
+    background-color: transparent;
+    border-color: #1abc9c;
+}
+
+.btn-right:hover {
+    border-color: #16a085;
+}
+
+/* Título */
+.titular {
+    text-align: center;
+    margin-top: 70px;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    animation: fadeIn 3s ease-in-out forwards;
+    padding: 5px;
+}
+
+.titulo-1 {
+    font-size: 25px;
+    text-align: center;
+    opacity: 0.9;
+    animation: fadeIn 3s ease-in-out forwards;
+    padding: 80px;
+}
+
+/* Animación de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Cuadro de fotos */
+.photo-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.photo-title {
+    font-size: 30px;
+    color: #ffdd57;
+    margin-bottom: 20px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; /* Aumentamos el espacio entre las fotos */
+    width: 90%;
+    max-width: 2000px; /* Aumentamos el ancho máximo */
+    margin: 0 auto;
+}
+
+/* Estilos comunes para fotos y videos */
+.photo-item img,
+.photo-item video {
+    width: 100%;
+    height: 600px; /* Aumentamos el tamaño */
+    object-fit: cover; /* Asegura que la imagen o video se recorte bien */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.photo-item img:hover,
+.photo-item video:hover {
+    transform: scale(1.05); /* Efecto de hover para fotos y videos */
+}
+
+/* Estilo del corazón */
+.heart-icon {
+    display: none; /* Se oculta inicialmente */
+    font-size: 50px;
+    color: red;
+    top: 50%; /* Centra el corazón verticalmente */
+    left: 50%; /* Centra el corazón horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para que esté perfectamente centrado */
+    transition: transform 0.2s ease; /* Suaviza el movimiento de escalado */
+}
+
+/* Cuando se hace doble clic en la imagen o video, se muestra el corazón */
+.photo-item.love .heart-icon {
+    display: block; /* Muestra el corazón cuando se le da doble clic */
+}
+
+/* Animación de corazón */
+@keyframes heart-animation {
+    0% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+    50% {
+        transform: scale(1.5) translate(-50%, -50%);
+    }
+    100% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+}
+
+/* Animación de corazón */
+.heart-icon.love {
+    display: block;
+    animation: pulse 0.6s ease-in-out infinite;
+}
+
+/* Efecto de latido */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Sección de audio */
+.song-section {
+    width: 80%;
+    max-width: 800px; /* Limita el ancho del reproductor */
+    text-align: center;
+    margin: 40px auto; /* Centra el bloque */
+}
+
+.song-section h2 {
+    font-size: 35px;
+    color: #ffdd57;
+    margin-bottom: 15px;
+}
+
+.song-section p {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+/* Estilos para el reproductor de audio */
+audio {
+    width: 100%; /* Hace que el reproductor ocupe todo el ancho */
+    height: 50px; /* Ajusta la altura del reproductor */
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #ffffff; /* Color de fondo de los controles */
+    border-radius: 10px;
+}
+
+.perspective-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+
+.perspective-left,
+.perspective-right {
+    width: 45%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 70px;
+    text-align: center;
+    overflow: hidden; /* Asegura que el contenido oculto no se vea */
+    transition: all 0.3s ease; /* Añadimos una transición suave */
+}
+
+.perspective-left h2,
+.perspective-right h2 {
+    font-size: 22px;
+    color: #ffdd57;
+    margin-bottom: 10px;
+}
+
+.perspective-left p,
+.perspective-right p {
+    font-size: 16px;
+    color: #fff;
+    display: none; /* Inicia el texto oculto */
+    opacity: 0;
+    max-height: 0;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease;
+}
+
+/* Botón para mostrar más */
+.toggle-btn {
+    background-color: transparent;
+    color: #ffdd57;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+/* Mostrar el texto cuando se haga clic */
+.perspective-left.active p,
+.perspective-right.active p {
+    display: block;
+    opacity: 1;
+    max-height: 3000px; /* Asegura que el texto ocupe el espacio necesario */
+    padding: 10px; /* Agrega un poco de espacio alrededor del texto */
+}
+
+/* Estilo de los botones al hacer hover */
+.toggle-btn:hover {
+    color: #fff;
+}
+
+/* Animación para el efecto de "mostrar más" */
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 1000px;
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 371px) and (max-width: 575px) {
+
+    /* Ajuste en la disposición de las fotos */
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr); /* Cambiar a 2 columnas en lugar de 3 */
+    }
+
+    /* Ajustes de los botones */
+    .buttons {
+        position: fixed; /* Fija los botones en la parte superior */
+        display: flex; /* Mantén los botones alineados en línea */
+        justify-content: space-between; /* Coloca los botones en las esquinas */
+        align-items: center; /* Alinea los botones */
+        z-index: 10; /* Asegura que los botones estén encima del contenido */
+        padding: 0 10px; /* Ajusta el padding para que no estén demasiado pegados a los bordes */
+    }
+
+    /* Botones */
+    button {
+        font-size: 1rem; /* Reducción del tamaño de los botones */
+        padding: 4px 8px; /* Ajusta el padding */
+        width: auto; /* Ajusta el tamaño de los botones */
+        max-width: 150px; /* Limita el ancho de los botones */
+    }
+
+    /* Título */
+    .titular {
+        font-size: 28px; /* Reducir tamaño de fuente */
+        margin-top: 60px; /* Reducir margen superior */
+    }
+
+    .titulo-1 {
+        font-size: 17px;
+        padding: 20px;
+    }
+
+    /* Ajustes en las perspectivas */
+    .perspective-container {
+        flex-direction: column;
+        align-items: center;
+        width: 90%; /* Asegura que el contenedor ocupe más espacio en pantallas pequeñas */
+    }
+
+    .perspective-left,
+    .perspective-right {
+        width: 100%; /* Asegura que las perspectivas ocupen el 100% del contenedor */
+        margin-bottom: 50px; /* Reducir el margen inferior */
+        padding: 5px; /* Espaciado interno para que el texto no esté pegado a los bordes */
+        box-sizing: border-box; /* Asegura que el padding se aplique correctamente */
+        text-align: center; /* Alinea el texto al centro */
+        background-color: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    }
+
+    .perspective-left h2,
+    .perspective-right h2 {
+        font-size: 18px; /* Reducir tamaño de los títulos */
+        margin-top: 10px;
+    }
+
+    .perspective-left p,
+    .perspective-right p {
+        font-size: 16px; /* Reducir tamaño del texto */
+        margin-top: 10px; /* Agregar un pequeño margen superior */
+    }
+
+    .toggle-btn {
+        font-size: 18px; /* Reducir tamaño de fuente en el botón */
+    }
+
+    /* Ajustes en las fotos y videos */
+    .photo-item img,
+    .photo-item video {
+        height: 400px; /* Reducir tamaño de las fotos/videos */
+    }
+
+    .song-section h2 {
+        font-size: 30px; /* Reducir tamaño del título */
+    }
+
+    .song-section p {
+        font-size: 16px; /* Reducir tamaño del texto */
+    }
+}
